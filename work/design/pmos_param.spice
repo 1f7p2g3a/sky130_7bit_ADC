@@ -1,0 +1,7 @@
+.param vds = 1.8
+.param vbs = 0
+.param L = 0.5
+.param W = 10
+.param F = 1
+.param M = 1
+.dc vgs 0 1.8 0.01
