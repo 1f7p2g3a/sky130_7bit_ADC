@@ -1,0 +1,31 @@
+.control
+    set wr_singlescale
+    option numdgt = 4
+    save @m.xm2.msky130_fd_pr__nfet_01v8[id]
+    save @m.xm2.msky130_fd_pr__nfet_01v8[vth]
+    save @m.xm2.msky130_fd_pr__nfet_01v8[vdsat]
+    save @m.xm2.msky130_fd_pr__nfet_01v8[gm]
+    save @m.xm2.msky130_fd_pr__nfet_01v8[gds]
+    
+    run
+    wrdata sweep_nmos_lvt_outchar.dat
+    + @m.xm2.msky130_fd_pr__nfet_01v8[id]
+    + @m.xm2.msky130_fd_pr__nfet_01v8[vth]
+    + @m.xm2.msky130_fd_pr__nfet_01v8[vdsat]
+    + @m.xm2.msky130_fd_pr__nfet_01v8[gm]
+    + @m.xm2.msky130_fd_pr__nfet_01v8[gds]
+    
+    save @m.xm1.msky130_fd_pr__pfet_01v8[id]
+    save @m.xm1.msky130_fd_pr__pfet_01v8[vth]
+    save @m.xm1.msky130_fd_pr__pfet_01v8[vdsat]
+    save @m.xm1.msky130_fd_pr__pfet_01v8[gm]
+    save @m.xm1.msky130_fd_pr__pfet_01v8[gds]
+    
+    run
+    wrdata sweep_nmos_outchar.dat
+    + @m.xm1.msky130_fd_pr__pfet_01v8[id]
+    + @m.xm1.msky130_fd_pr__pfet_01v8[vth]
+    + @m.xm1.msky130_fd_pr__pfet_01v8[vdsat]
+    + @m.xm1.msky130_fd_pr__pfet_01v8[gm]
+    + @m.xm1.msky130_fd_pr__pfet_01v8[gds]
+.endc
