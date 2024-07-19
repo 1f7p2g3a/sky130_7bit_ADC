@@ -1,0 +1,30 @@
+** sch_path: /home/ttuser/work/tt08-analog-template/work/design/sym_inverter.sch
+**.subckt sym_inverter
+V1 VSS GND 0
+V2 VDD VSS 1.8
+vin VIN VSS 0
+XM2 VOUT VIN VSS VSS sky130_fd_pr__nfet_01v8 L={Lnm} W={Wnm} nf={Fnm} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult={Mnm} m={Mnm}
+XM1 VOUT VIN VDD VDD sky130_fd_pr__pfet_01v8 L={Lpm} W={Wpm} nf={Fpm} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult={Wpm} m={Wpm}
+**** begin user architecture code
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+
+
+
+.include sym_inverter_param.spice
+.include sym_inverter_ctrl.spice
+
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

@@ -1,9 +1,9 @@
-.param Ln = 0.5
-.param Wn = 10
-.param Fn = 1
-.param Mn = 1
-.param Lp = 0.5
-.param Wp = 10
-.param Fp = 1
-.param Mp = 1
+.param Wpm = 2.0
+.param Lnm = 0.15
+.param Lpm = 0.15
+.param Wnm = 0.42
+.param Fnm = 1
+.param Mnm = 1
+.param Fpm = 1
+.param Mpm = 1
 .dc vin 0 1.8 0.01

@@ -69,25 +69,11 @@ value="
 .include sym_inverter_param.spice
 .include sym_inverter_ctrl.spice
 "}
-C {sky130_fd_pr/pfet_01v8.sym} -200 -270 0 0 {name=M1
-L=Lp
-W=Wp
-nf=Fp
-mult=Mp
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_01v8
-spiceprefix=X
-}
 C {sky130_fd_pr/nfet_01v8.sym} -200 -150 0 0 {name=M2
-L=Ln
-W=Wn
-nf=Fn 
-mult=Mn
+L=\{Lnm\}
+W=\{Wnm\}
+nf=\{Fnm\} 
+mult=\{Mnm\}
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -95,5 +81,19 @@ ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
 model=nfet_01v8
+spiceprefix=X
+}
+C {sky130_fd_pr/pfet_01v8.sym} -200 -270 0 0 {name=M1
+L=\{Lpm\}
+W=\{Wpm\}
+nf=\{Fpm\}
+mult=\{Wpm\}
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=pfet_01v8
 spiceprefix=X
 }
